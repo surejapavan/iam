@@ -1,0 +1,134 @@
+.contact {
+  background-color: $bgcolorse;
+  position: relative;
+}
+
+.contact__container {
+  display: flex;
+  flex-wrap: wrap;
+  .contact__address {
+    width: 40%;
+    min-width: 230px;
+  }
+  .contact__form {
+    width: 60%;
+    min-width: 350px;
+  }
+}
+
+.contact__address {
+  background-image: url("../img/map.png");
+  background-size: cover;
+  .contact__p {
+    margin: 0em 0em 2em;
+    line-height: 35px;
+    color: white;
+    font-family: "Rubik";
+    font-size: 0.9rem;
+    .contact__span {
+      font-size: 1.1rem;
+      color: $color;
+      padding-bottom: 1em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  .contact__first {
+    display: flex;
+    justify-content: space-between;
+    .form-control {
+      width: 49%;
+    }
+  }
+  .form-control {
+    margin-bottom: 1em;
+    background-color: #222;
+    border-color: transparent;
+    color: white;
+    padding: 0.7em;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: "Rubik medium";
+  }
+  textarea.form-control {
+    border-radius: 10px 10px 0px 10px;
+    height: 200px;
+  }
+}
+
+.btn-grp {
+  display: flex;
+  justify-content: flex-end;
+  .btn {
+    position: relative;
+    border-color: $color;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    span {
+      position: relative;
+      outline: none;
+      z-index: 2;
+    }
+  }
+  .btn--skin--light {
+    border-width: 1px;
+    background-color: #fff;
+    color: $color;
+  }
+  .btn::before,
+  .btn::after {
+    content: "";
+    width: 0;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.5s ease-in-out;
+    opacity: 0.4;
+    border-radius: 30px;
+    border-width: 1px;
+    z-index: 1;
+  }
+  .btn::before {
+    background-color: $color;
+    opacity: 0.9;
+    transition-delay: 200ms;
+  }
+  .btn::after {
+    background-color: #c49b668c;
+    transition-delay: 50ms;
+  }
+  .btn:hover::after,
+  .btn:hover::before {
+    width: 100%;
+  }
+
+  .btn--skin--light:hover {
+    color: white;
+  }
+}
+
+@media (max-width: 687px) {
+  .contact__container {
+    .contact__form, .contact__address {
+      width: 100%;
+    }
+  }
+  .contact__address {
+    text-align: center;
+  }
+}
+
+@media (max-width:450px){
+  .contact__container {
+    .contact__form, .contact__address {
+      width: 100%;
+      min-width: 300px;
+    }
+  }
+}

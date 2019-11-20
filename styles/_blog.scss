@@ -1,0 +1,67 @@
+// laytout styles for blog 
+.blog{
+    background-color: $bgcolorpr;
+}
+
+.blog__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5em 0em;
+    margin-bottom: 7em;
+}
+
+.blog__item{
+    position: relative;
+    width: ( 100%/3.2 );
+    overflow: hidden;
+    min-width: 300px;
+    margin: 1em auto;
+    .blog__img__contain{
+        background-color: rgba(0, 0, 0, 0.171);
+        filter: blur(2px);
+        transition: all .5s;
+    }
+    .blog__txtoly{
+        position: absolute;
+        bottom: 0;
+        padding: 2em;
+        color: white;
+        transform: translateY(55px);
+        transition: all .3s;
+        .blog__p{
+            color: $color;
+            font-family: "Rubik";
+            letter-spacing: 1px;
+            font-size: .8rem;
+        }
+        .blog__title{
+            font-family: "Rubik medium";
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.blog__img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.blog__item:hover{
+    .blog__img__contain{
+        filter: none;
+        transform: scale(1.05,1.05);
+    }
+    .blog__txtoly{
+        transform: translateY(0px);
+    }
+}
+
+.blog__link{
+    text-decoration: none;
+    font-family: "Rubik";
+    padding:.5em;
+    color: white;
+    border-bottom: 1px solid $color;
+}
