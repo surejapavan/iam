@@ -9,117 +9,109 @@
 
 -----------------------------------------------------------------------------------*/
 
+$(function() {
+  "use strict";
 
-$(function () {
+  var wind = $(window);
 
-    "use strict";
+  // $(function () {
+  //     $.scrollIt({
+  //         upKey: 38,                // key code to navigate to the next section
+  //         downKey: 40,              // key code to navigate to the previous section
+  //         easing: 'swing',          // the easing function for animation
+  //         scrollTime: 600,          // how long (in ms) the animation takes
+  //         activeClass: 'active',    // class given to the active nav element
+  //         onPageChange: null,       // function(pageIndex) that is called when page is changed
+  //         topOffset: -80            // offste (in px) for fixed top navigation
+  //     });
+  // });
 
-    var wind = $(window);
+  // navbar scrolling background
+  // wind.on("scroll", function () {
 
-    // $(function () {
-    //     $.scrollIt({
-    //         upKey: 38,                // key code to navigate to the next section
-    //         downKey: 40,              // key code to navigate to the previous section
-    //         easing: 'swing',          // the easing function for animation
-    //         scrollTime: 600,          // how long (in ms) the animation takes
-    //         activeClass: 'active',    // class given to the active nav element
-    //         onPageChange: null,       // function(pageIndex) that is called when page is changed
-    //         topOffset: -80            // offste (in px) for fixed top navigation
-    //     });
-    // });
+  //     var bodyScroll = wind.scrollTop(),
+  //         navbar = $(".navbar")
 
+  //     if (bodyScroll > 100) {
 
+  //         navbar.addClass("nav-scroll");
 
-    // navbar scrolling background
-    // wind.on("scroll", function () {
+  //     } else {
 
-    //     var bodyScroll = wind.scrollTop(),
-    //         navbar = $(".navbar")
+  //         navbar.removeClass("nav-scroll");
+  //     }
+  // });
 
-    //     if (bodyScroll > 100) {
+  // navbar scrolling background
+  // wind.on("scroll", function () {
 
-    //         navbar.addClass("nav-scroll");
+  //     var bodyScroll = wind.scrollTop(),
+  //         navLight = $(".nav-light"),
+  //         logo = $(".nav-light .logo> img");
 
-    //     } else {
+  //     if (bodyScroll > 100) {
 
-    //         navbar.removeClass("nav-scroll");
-    //     }
-    // });
+  //         navLight.addClass("nav-scroll");
+  //         logo.attr('src', 'img/logo-dark.png');
 
-    // navbar scrolling background
-    // wind.on("scroll", function () {
+  //     } else {
 
-    //     var bodyScroll = wind.scrollTop(),
-    //         navLight = $(".nav-light"),
-    //         logo = $(".nav-light .logo> img");
+  //         navLight.removeClass("nav-scroll");
+  //         logo.attr('src', 'img/logo-light.png');
+  //     }
+  // });
 
-    //     if (bodyScroll > 100) {
-
-    //         navLight.addClass("nav-scroll");
-    //         logo.attr('src', 'img/logo-dark.png');
-
-    //     } else {
-
-    //         navLight.removeClass("nav-scroll");
-    //         logo.attr('src', 'img/logo-light.png');
-    //     }
-    // });
-
-    // magnificPopup
-    $('.gallery').magnificPopup({
-        delegate: '.popup',
-        type: 'image',
-        mainClass: 'mfp-zoom-out',
-        // removelDelay: 300,
-        gallery: {
-            enabled: true
-        }
-    });
-
-
+  // magnificPopup
+  $(".gallery").magnificPopup({
+    delegate: ".popup",
+    type: "image",
+    mainClass: "mfp-zoom-out",
+    // removelDelay: 300,
+    gallery: {
+      enabled: true
+    }
+  });
+  // scrollspy
+  $("#nav").scrollspy({ offset: 0 });
 });
-
 
 // === window When Loading === //
 
 // PreLoader
 window.addEventListener("load", () => {
-    const loading = document.querySelector(".loading");
-    loading.classList.add("loading-finished")
-})
+  const loading = document.querySelector(".loading");
+  loading.classList.add("loading-finished");
+});
 
-$(window).on("load", function () {
+$(window).on("load", function() {
+  var wind = $(window);
 
-    var wind = $(window);
+  // isotope
+  $(".gallery").isotope({
+    // options
+    itemSelector: ".items",
+    percentPosition: true,
+    masonry: {
+      // use element for option
+      columnWidth: ".width2"
+    }
+  });
 
-    // isotope
-    $('.gallery').isotope({
-        // options
-        itemSelector: '.items',
-        percentPosition: true,
-        masonry: {
-            // use element for option
-            columnWidth: '.width2'
-        }
-    });
+  var $gallery = $(".gallery").isotope({
+    // options
+  });
 
-    var $gallery = $('.gallery').isotope({
-        // options
-    });
+  // filter items on button click
+  $(".filtering").on("click", "button", function() {
+    var filterValue = $(this).attr("data-filter");
 
-    // filter items on button click
-    $('.filtering').on('click', 'button', function () {
+    $gallery.isotope({ filter: filterValue });
+  });
 
-        var filterValue = $(this).attr('data-filter');
-
-        $gallery.isotope({ filter: filterValue });
-
-    });
-
-    $('.filtering').on('click', 'button', function () {
-
-        $(this).addClass('active').siblings().removeClass('active');
-
-    });
-
+  $(".filtering").on("click", "button", function() {
+    $(this)
+      .addClass("active")
+      .siblings()
+      .removeClass("active");
+  });
 });
