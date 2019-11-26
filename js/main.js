@@ -72,7 +72,7 @@ $(function() {
     }
   });
   // scrollspy
-  $("#nav").scrollspy({ offset: 0 });
+  $("#nav").scrollspy({ offset: 80 });
 });
 
 // === window When Loading === //
