@@ -71,8 +71,6 @@ $(function() {
       enabled: true
     }
   });
-  // scrollspy
-  $("#nav").scrollspy({ offset: 0 });
 });
 
 // === window When Loading === //

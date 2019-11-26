@@ -6,25 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Zain</title>
+  <link rel="stylesheet" href="./styles/bootstrap.min.css">
   <link rel="stylesheet" href="./styles/main.css" />
   <link rel="stylesheet" href="./js/magnific-popup.css" />
-  <!-- <script src="./js/jquery-migrate-3.1.0.min.js"></script> -->
-  <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-  <!-- <script>
-      $(function() {
-        $.scrollIt();
-      });
-      $.scrollIt({
-        upKey: 38, // key code to navigate to the next section
-        downKey: 40, // key code to navigate to the previous section
-        easing: "linear", // the easing function for animation
-        scrollTime: 600, // how long (in ms) the animation takes
-        activeClass: "active", // class given to the active nav element
-        onPageChange: null, // function(pageIndex) that is called when page is changed
-        topOffset: 0 // offste (in px) for fixed top navigation
-      });
-    </script> -->
-  <!-- <script src="./js/main.js"></script> -->
+  <script src="./js/gumshoe.min.js"></script>
 </head>
 
 <body>
@@ -47,29 +32,29 @@
       <nav class="header__nav" id="nav">
         <ul class="header__ul">
           <li class="header__li">
-            <a href="#home" class="header__link" data-scroll-nav="0">Home</a>
+            <a data-scroll href="#home" class="header__link" data-scroll-nav="0">Home</a>
           </li>
           <li class="header__li">
-            <a href="#hero" class="header__link" data-scroll-nav="1">About</a>
+            <a data-scroll href="#hero" class="header__link" data-scroll-nav="1">About</a>
           </li>
           <li class="header__li">
-            <a href="#services" class="header__link" data-scroll-nav="2">Services</a>
+            <a data-scroll href="#services" class="header__link" data-scroll-nav="2">Services</a>
           </li>
           <li class="header__li">
-            <a href="#portfolio" class="header__link" data-scroll-nav="3">Portfolio</a>
+            <a data-scroll href="#portfolio" class="header__link" data-scroll-nav="3">Portfolio</a>
           </li>
           <li class="header__li">
-            <a href="#blog" class="header__link" data-scroll-nav="4">Blog</a>
+            <a data-scroll href="#blog" class="header__link" data-scroll-nav="4">Blog</a>
           </li>
           <li class="header__li">
-            <a href="#contact" class="header__link" data-scroll-nav="5">Contact</a>
+            <a data-scroll href="#contact" class="header__link" data-scroll-nav="5">Contact</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
   <main class="main-container">
-    <section class="home" id="home" data-scroll-index="0">
+    <section class="home" id="home">
       <div class="home__container">
         <h1 class="home__h1">Welcome !</h1>
         <div class="home__h1-contain">
@@ -91,7 +76,7 @@
         </div>
       </div>
     </section>
-    <section class="hero section" id="hero" data-scroll-index="1">
+    <section class="hero section" id="hero">
       <svg class="wave" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1920 81.717" enable-background="new 0 0 1920 81.717" xml:space="preserve">
         <path style=""
@@ -129,7 +114,7 @@
         </path>
       </svg>
     </section>
-    <section class="services section" id="services" data-scroll-index="2">
+    <section class="services section" id="services">
       <div class="services__container container">
         <div class="services__heading heading">
           <h2>Services</h2>
@@ -162,7 +147,7 @@
         </div>
       </div>
     </section>
-    <section class="portfolio section" id="portfolio" data-scroll-index="3">
+    <section class="portfolio section" id="portfolio">
       <svg class="wave" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1920 81.717" enable-background="new 0 0 1920 81.717" xml:space="preserve">
         <path style=""
@@ -275,7 +260,7 @@
         </path>
       </svg>
     </section>
-    <section class="blog section" id="blog" data-scroll-index="4">
+    <section class="blog section" id="blog">
       <div class="container">
         <div class="blog__heading heading">
           <h2>Our Blog</h2>
@@ -314,7 +299,7 @@
         </div>
       </div>
     </section>
-    <section class="contact section" id="contact" data-scroll-index="5">
+    <section class="contact section" id="contact">
       <svg class="wave" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" viewBox="0 0 1920 81.717" enable-background="new 0 0 1920 81.717" xml:space="preserve">
         <path style=""
@@ -368,12 +353,11 @@
   </main>
 
   <script src="./js/jquery-3.4.1.slim.min.js"></script>
-  <script src="./js/font-awesome.js" defer></script>
-  <script src="./js/animated-headline.js" defer></script>
-  <!-- <script src="./js/scrollIt.min.js"></script> -->
-  <script src="./js/scrollspy.min.js"></script>
   <script src="./js/jquery.magnific-popup.min.js" defer></script>
+  <script src="./js/animated-headline.js" defer></script>
   <script src="./js/isotope.pkgd.min.js" defer></script>
+  <script src="./js/popper.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
   <script>
     $(window).on("scroll", function () {
       if ($(window).scrollTop() > 50) {
@@ -385,9 +369,10 @@
     });
   </script>
   <script src="./js/main.js" defer></script>
-  <!-- <script defer>
-      $("#nav").scrollspy({ offset: 0 });
-    </script> -->
+  <script>
+    var spy = new Gumshoe('#nav a');
+  </script>
+  <script src="./js/font-awesome.js" defer></script>
 </body>
 
 </html>
